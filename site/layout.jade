@@ -7,9 +7,9 @@ html(lang='en')
         block head
             title Sudoku
         link(href='vendor/bootstrap/css/bootstrap.css', rel='stylesheet')
+        link(href='site.css', rel='stylesheet')
         script(src='vendor/jquery/jquery.js')
         script(src='vendor/bootstrap/js/bootstrap.js')
-        script(src='app.js')
     body
         header(class='navbar navbar-default navbar-static-top', id='top', role='banner')
             .container
@@ -26,3 +26,4 @@ html(lang='en')
                             a(href='index.html') Try
         .container
             block body
+        script(src='site.js')

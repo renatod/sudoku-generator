@@ -22,6 +22,10 @@ function Sudoku(data) {
             console.log(line);
         }
     };
+
+    this.getData = function() {
+        return data;
+    }
 }
 
 module.exports = Sudoku;
