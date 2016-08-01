@@ -1,4 +1,4 @@
-var SudokuFactory = require('./src/factory');
+var SudokuFactory = require('./../src/factory');
 
 var factory = new SudokuFactory();
 var sudoku = factory.generate();

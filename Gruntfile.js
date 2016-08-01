@@ -15,9 +15,9 @@ module.exports = function (grunt) {
         },
 
         browserify: {
-          dist: {
+          site: {
             files: {
-            'dist/main.js': ['sudoku.js', 'src/*.js']
+            'site/dist/app.js': ['site/app.js', 'src/*.js']
             }
           }
         },
@@ -48,12 +48,13 @@ module.exports = function (grunt) {
 
     // Default task(s).
     grunt.registerTask('default', [
-        "browserify"
+        "site"
     ]);
 
     grunt.registerTask('site', [
         "copy:site",
-        "jade:site"
+        "jade:site",
+        "browserify:site"
     ]);
 
 };
