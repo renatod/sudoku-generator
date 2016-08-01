@@ -1,0 +1,29 @@
+{
+  "name": "sudoku-generator",
+  "description": "Sodoku",
+  "main": "sudoku.js",
+  "authors": [
+    "Renato Dias"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "sodoku"
+  ],
+  "homepage": "https://github.com/renatod/sudoku-generator",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.1.3",
+    "bootstrap": "3.3.6"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "/": "dist"
+    }
+  }
+}
