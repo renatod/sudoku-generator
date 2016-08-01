@@ -1,3 +1,5 @@
+var Mixins = require('./mixins');
+
 function Sudoku(data) {
     this.print = function (reveal) {
         var squares = [];
@@ -5,7 +7,7 @@ function Sudoku(data) {
         for (var y = 0; y <= 8; y++) {
             var line = "";
             for (x = 0; x <= 8; x++) {
-                var square = getSquare(x, y);
+                var square = Mixins.getSquare(x, y);
                 if (!squares[square])
                     squares[square] = 0;
 
@@ -20,10 +22,6 @@ function Sudoku(data) {
             console.log(line);
         }
     };
-
-    function getSquare(x, y) {
-        return ((Math.ceil((y + 1) / 3) * 3) + (Math.ceil((x + 1) / 3) - 3) - 1);
-    }
 }
 
 module.exports = Sudoku;

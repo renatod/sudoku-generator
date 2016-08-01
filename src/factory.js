@@ -1,4 +1,5 @@
 var Sudoku = require('./sudoku');
+var Mixins = require('./mixins');
 
 function SudokuFactory() {
     this.generate = function () {
@@ -26,7 +27,7 @@ function SudokuFactory() {
             result[y] = [];
 
             for (x = 0; x <= 8; x++) {
-                var value = getValue(line[x], column[y], square[getSquare(x, y)], 0);
+                var value = getValue(line[x], column[y], square[Mixins.getSquare(x, y)], 0);
                 if (value == null)
                     return null;
 
@@ -59,11 +60,6 @@ function SudokuFactory() {
         square.splice(squareIndex, 1);
         return value;
     }
-
-    function getSquare(x, y) {
-        return ((Math.ceil((y + 1) / 3) * 3) + (Math.ceil((x + 1) / 3) - 3) - 1);
-    }
 }
-
 
 module.exports = SudokuFactory;
