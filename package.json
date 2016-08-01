@@ -1,0 +1,24 @@
+{
+  "name": "sudoku-generator",
+  "version": "1.0.0",
+  "description": "Sodoku",
+  "main": "sudoku.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatod/sudoku-generator.git"
+  },
+  "keywords": [
+    "sodoku"
+  ],
+  "author": "Renato Dias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renatod/sudoku-generator/issues"
+  },
+  "homepage": "https://github.com/renatod/sudoku-generator#readme",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "express": "~4.10.7",
+    "grunt-browserify": "^5.0.0"
+  }
+}
