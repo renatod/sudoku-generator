@@ -3,6 +3,6 @@ table.sudoku {
   text-align: center;
 }
 table.sudoku td {
-  width: 80px;
+  width: 55px;
   border: 1px solid;
 }
