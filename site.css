@@ -5,4 +5,5 @@ table.sudoku {
 table.sudoku td {
   width: 55px;
   border: 1px solid;
+  height: 55px;
 }
