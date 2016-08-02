@@ -1,30 +1,30 @@
 var Mixins = require('./mixins');
 
 function Sudoku(data) {
-    this.print = function (reveal) {
+    this.getData = function(reveal) {
+        var result = [];
         var squares = [];
 
         for (var y = 0; y <= 8; y++) {
-            var line = "";
+            result[y] = [];
+
             for (x = 0; x <= 8; x++) {
+                result[y][x] = null;
+
                 var square = Mixins.getSquare(x, y);
                 if (!squares[square])
                     squares[square] = 0;
 
                 if (squares[square] > reveal || (Math.random() * 10) > reveal) {
-                    line += "[ ]";
                     continue;
                 }
 
                 squares[square]++;
-                line += "[" + data[y][x] + "]";
+                result[y][x] = data[y][x];
             }
-            console.log(line);
         }
-    };
 
-    this.getData = function() {
-        return data;
+        return result;
     }
 }
 
