@@ -4,18 +4,43 @@ var SudokuFactory = require('./../../src/factory');
 var factory = new SudokuFactory();
 var sudoku = factory.generate();
 
-$table = $("table.sudoku");
+var make = function() {
+  $table = $("table.sudoku");
+  $table.empty();
 
-var data = sudoku.getData(4);
+  var data = sudoku.getData(4);
+  for (var y = 0; y < 9; y++) {
 
-for (var y = 0; y < 9; y++) {
-  $row = $("<tr/>");
-  $row.appendTo($table);
-  for (var x = 0; x < 9; x++) {
-      $td = $("<td/>", { html: data[y][x]});
-      $td.appendTo($row);
+    if (y % 3 == 0) {
+      $row = $("<tr/>");
+      $row.appendTo($table);
+    }
+
+    $td = $("<td/>");
+    $td.appendTo($row);
+
+    $table2 = $("<table />");
+    $table2.appendTo($td);
+
+    for (var x = 0; x < 9; x++) {
+        if (x % 3 == 0) {
+          $row2 = $("<tr/>");
+          $row2.appendTo($table2);
+        }
+
+        $td2 = $("<td/>", { html: data[y][x]});
+        $td2.appendTo($row2);
+
+    }
   }
-}
+};
+
+$btnNew = $("#new");
+$btnNew.on("click", function() {
+  make();
+});
+
+make();
 
 },{"./../../src/factory":2}],2:[function(require,module,exports){
 var Sudoku = require('./sudoku');
@@ -102,21 +127,21 @@ function Sudoku(data) {
         var squares = [];
 
         for (var y = 0; y <= 8; y++) {
-            result[y] = [];
-
             for (x = 0; x <= 8; x++) {
-                result[y][x] = null;
-
                 var square = Mixins.getSquare(x, y);
                 if (!squares[square])
                     squares[square] = 0;
 
-                if (squares[square] > reveal || (Math.random() * 10) > reveal) {
-                    continue;
+                var value = null;
+                if (squares[square] < reveal && (Math.random() * 10) <= reveal) {
+                  value = data[y][x];
+                  squares[square]++;
                 }
 
-                squares[square]++;
-                result[y][x] = data[y][x];
+                if (!result[square])
+                  result[square] = [];
+
+                result[square].push(value);
             }
         }
 
