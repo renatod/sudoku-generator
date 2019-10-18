@@ -1,6 +1,6 @@
 {
   "name": "sudoku-generator",
-  "description": "Sodoku",
+  "description": "Sodoku do Renato",
   "main": "sudoku.js",
   "authors": [
     "Renato Dias"
